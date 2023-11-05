@@ -1,0 +1,57 @@
+---
+title: pipenvでsslエラー
+tags: ['Python', 'pipenv', 'ssl']
+private: false
+updated_at: '2023年11月6日'
+id: null
+organization_url_name: null
+slide: false
+ignorePublish: false
+---
+
+# `pipenv sync`で ssl エラー
+
+`pipenv sync`で環境構築を行おうとしたところ，ssl エラーが発生した．その解決策を未来の自分に向けて残しておく．
+
+# 環境
+
+-   MacBook Pro (M1, 2020)
+-   macOS Sonoma 14.0
+-   Python 3.10.11
+-   pip 23.3.1
+-   pipenv, version 2023.10.24
+
+# 問題点
+
+`pipenv sync`で環境を構築しようとしたところ，以下のエラーが発生した．
+
+```zsh
+WARNING: pip is configured with locations that require TLS/SSL, however the ssl module in Python is not available.
+WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError("Can't connect to HTTPS URL because the SSL module is not available.")': /simple/asgiref/
+WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError("Can't connect to HTTPS URL because the SSL module is not available.")': /simple/asgiref/
+WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError("Can't connect to HTTPS URL because the SSL module is not available.")': /simple/asgiref/
+WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError("Can't connect to HTTPS URL because the SSL module is not available.")': /simple/asgiref/
+WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError("Can't connect to HTTPS URL because the SSL module is not available.")': /simple/asgiref/
+Could not fetch URL https://pypi.org/simple/asgiref/: There was a problem confirming the ssl certificate: HTTPSConnectionPool(host='pypi.org', port=443): Max retries exceeded with url: /simple/asgiref/ (Caused by SSLError("Can't connect to HTTPS URL because the SSL module is not available.")) - skipping
+ERROR: Could not find a version that satisfies the requirement asgiref==3.5.2 (from versions: none)
+ERROR: No matching distribution found for asgiref==3.5.2
+WARNING: pip is configured with locations that require TLS/SSL, however the ssl module in Python is not available.
+Could not fetch URL https://pypi.org/simple/pip/: There was a problem confirming the ssl certificate: HTTPSConnectionPool(host='pypi.org', port=443): Max retries exceeded with url: /simple/pip/ (Caused by SSLError("Can't connect to HTTPS URL because the SSL module is not available.")) - skipping
+```
+
+# 解決策
+
+`brew`が使えるなら，以下のコマンドを実行する．
+
+```zsh:terminal
+brew intall openssl@1.1
+```
+
+今までは`brew install openssl`でインストールしていたが，これで install されていたのは`openssl3`だった．`openssl@1.1`が必要らしいので改めてインストールした．
+
+これを行うとしっかりと`pipenv sync`が通るようになった．
+
+# 参考
+
+[公式ドキュメント](https://www.python.jp/news/wnpython310/require-openssl11.html)
+[CentOS7 に python3.10 系を入れた場合の SSL エラー](https://qiita.com/nunnunnununun/items/76b9a6b8b9eadbe495fe)
