@@ -1,9 +1,9 @@
 ---
 title: pipenvでsslエラー
 tags:
-  - Python
-  - SSL
-  - Pipenv
+    - Python
+    - SSL
+    - Pipenv
 private: false
 updated_at: '2023-11-06T01:14:03+09:00'
 id: 761714f8f228815bbc31
@@ -57,4 +57,5 @@ brew intall openssl@1.1
 # 参考
 
 https://www.python.jp/news/wnpython310/require-openssl11.html
+
 https://qiita.com/nunnunnununun/items/76b9a6b8b9eadbe495fe
