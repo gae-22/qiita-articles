@@ -1,9 +1,12 @@
 ---
 title: pipenvでsslエラー
-tags: ['Python', 'pipenv', 'ssl']
+tags:
+  - Python
+  - SSL
+  - Pipenv
 private: false
-updated_at: '2023年11月6日'
-id: null
+updated_at: '2023-11-06T01:14:03+09:00'
+id: 761714f8f228815bbc31
 organization_url_name: null
 slide: false
 ignorePublish: false
