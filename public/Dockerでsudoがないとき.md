@@ -1,10 +1,10 @@
 ---
 title: Dockerでsudoがないとき
 tags:
-    - 'Docker'
+  - Docker
 private: false
-updated_at: '2023年11月16日'
-id: null
+updated_at: '2023-11-16T12:49:06+09:00'
+id: f659a1e9476df5271081
 organization_url_name: null
 slide: false
 ignorePublish: false
