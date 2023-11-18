@@ -1,9 +1,11 @@
 ---
 title: MacでLuaLaTeXの環境構築
 tags:
-  - LaTeX
-  - Mac
-  - TeX
+    - LaTeX
+    - Mac
+    - TeX
+    - 初心者
+    - brew
 private: false
 updated_at: '2023-11-18T12:44:39+09:00'
 id: a954525557847dd16802
