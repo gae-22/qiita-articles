@@ -1,11 +1,11 @@
 ---
 title: RaspberryPiでProxy設定をする
 tags:
-    - RaspberryPi
-    - Proxy
+  - RaspberryPi
+  - proxy
 private: false
-updated_at: ''
-id: null
+updated_at: '2023-12-07T20:08:37+09:00'
+id: 308f3f375cf0f5b0e5cb
 organization_url_name: null
 slide: false
 ignorePublish: false
